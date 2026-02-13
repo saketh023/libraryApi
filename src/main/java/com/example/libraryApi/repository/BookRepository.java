@@ -2,17 +2,18 @@ package com.example.libraryApi.repository;
 
 import com.example.libraryApi.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface BookRepository extends JpaRepository<Book, Long> {
-    List<Book> getAllBooks();
-    Book getBookById(int id);
-    void createBook(Book book);
-    void updateBook(Long id, Book book);
-    void deleteBook(Long id);
-
-    List<Book> searchBooksByAuthor(String author);
-    List<Book> searchBooksByGenre(String genre);
+@Repository
+public interface BookRepository extends JpaRepository<Book, Integer> {
+//    List<Book> getAllBooks();
+//    Book getBookById(int id);
+//    void createBook(Book book);
+//    void updateBook(int id, Book book);
+//    void deleteBookById(int id);
+//
+//    List<Book> searchBooksByAuthor(String author);
+//    List<Book> searchBooksByGenre(String genre);
 }
