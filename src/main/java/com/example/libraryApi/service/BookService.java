@@ -52,4 +52,21 @@ public class BookService {
             System.out.println("BookId does not exist!");
         }
     }
+
+    public Optional<Book> updateBookById(int bookId, Book updatedBook){
+        Optional<Book> optionalBook = getBookById(bookId);
+        if(optionalBook.isPresent()){
+            Book existingBook = optionalBook.get();
+
+            existingBook.setTitle(updatedBook.getTitle());
+            existingBook.setAuthor(updatedBook.getAuthor());
+            existingBook.setPublishYear(updatedBook.getPublishYear());
+            existingBook.setIsbn(updatedBook.getIsbn());
+            existingBook.setGenre(updatedBook.getGenre());
+
+            Book savedBook = bookRepository.save(existingBook);
+            return Optional.of(savedBook);
+        }
+        return Optional.empty();
+    }
 }
